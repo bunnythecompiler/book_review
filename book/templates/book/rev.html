@@ -1,0 +1,23 @@
+{% extends 'book/base.html'%}
+{% block content %}
+
+    <div>
+        <div>
+            <H4>Review {{ books.title }}</H4>
+        </div>
+        <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ books.title }}</h5>
+              <p class="card-text">{{ books.description }}</p>
+            </div>
+            <img src="{{ books.book_cover.url }}" class="card-img-bottom" alt="...">
+          </div>
+        <div style="padding-top: 1%;">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">review now</button>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
